@@ -6,7 +6,7 @@
 
 Chrome용 사용자 CSS v2.0.1을 저장하고 테스트 및 ZIP 내보내기를 완료했다. `typography-chrome.css`는 전체 사이트용, `claude-chrome.css`는 Claude용이다. `No.1.md`, `Claude.ai.md`도 동일한 CSS로 갱신했다. 원본은 `originals/`에 보관했다.
 
-세션 시작 시 Git 저장소가 없어 `fatal: not a git repository (or any of the parent directories): .git`를 확인했다. 사용자가 현재 폴더에 저장소를 만들고 공개 GitHub에 게시하도록 승인했다. 로컬 Git과 공개 원격 https://github.com/lntp-k/user-javascript-and-css 를 생성했다. 작업 브랜치는 `update/chrome-typography`, 대상은 `main`이다. 소스 커밋·병합·push 결과는 완료 후 기록한다.
+세션 시작 시 Git 저장소가 없어 `fatal: not a git repository (or any of the parent directories): .git`를 확인했다. 사용자가 현재 폴더에 저장소를 만들고 공개 GitHub에 게시하도록 승인했다. 로컬 Git과 공개 원격 https://github.com/lntp-k/user-javascript-and-css 를 생성했다. 작업 브랜치 `update/chrome-typography`를 `main`에 fast-forward 병합하고 push했다. 소스 커밋 `f5473f65334f7eb5ac3f6d9c5e9ea9fc490b4c2a`가 원격 main과 로컬 HEAD에 일치함을 `git ls-remote`로 확인했다. 이 인계 문서의 후속 기록 커밋은 해당 소스 커밋의 자손이다. 최신 SHA는 `git ls-remote origin refs/heads/main`과 `git rev-parse HEAD`로 비교한다.
 
 ## 검증된 결과
 
@@ -16,7 +16,7 @@ Chrome용 사용자 CSS v2.0.1을 저장하고 테스트 및 ZIP 내보내기를
 - 총 기록된 통과 검사 899개. 본문 18px, 줄 간격 30.6px (루트 16px 기준).
 - 실제 글꼴: Pretendard-Regular, Pretendard-Bold, 코드 Menlo-Regular.
 - 마무리 단계에서 두 테스트 스크립트의 `node --check` 통과.
-- 상위 `/Users/jl/coding/AGENTS.md`에 따라 `graphify update .` 실행: 43 nodes, 35 edges, 8 communities. 첫 실행의 측정 JSON zero-node 경고 이후 생성물을 ignore하고 재갱신했다. 코드 그래프 갱신은 완료됐다. 문서의 의미 그래프 추출은 수행하지 않았다.
+- 상위 `/Users/jl/coding/AGENTS.md`에 따라 `graphify update .` 최종 실행: 46 nodes, 37 edges, 9 communities. 첫 실행의 측정 JSON zero-node 경고 이후 생성물을 ignore하고 재갱신했다. 코드 그래프 갱신은 완료됐다. 문서의 의미 그래프 추출은 수행하지 않았다.
 - 독립 Codex Sol 리뷰의 P2 (`font:` 축약 지정 덮어쓰기)를 수정하고 회귀 테스트를 통과했다. v2.0.1 독립 재리뷰에서 게시 승인, 남은 blocking finding 없음.
 
 ## 커밋 후보와 제외
@@ -40,3 +40,13 @@ Chrome용 사용자 CSS v2.0.1을 저장하고 테스트 및 ZIP 내보내기를
 4. 추가 운영 체크아웃/복제본이 지정되면 확인하고 dirty/ahead 작업 디렉터리는 덮어쓰지 않는다.
 
 현재는 파일을 저장하는 사용자 CSS 도구이므로 이 폴더를 소비하는 서비스/daemon은 식별되지 않았고 재시작을 수행하지 않았다. 확장 적용은 별도 남은 작업이다.
+
+## 게시 기록
+
+- 공개 GitHub 저장소 생성: 2026-10-02 12:12 KST. 현재 Mac 폴더를 그대로 사용했다.
+- 소스 commit: 12:18:46–12:18:47 KST, `git commit -m 'Improve Chrome typography and preserve code, math, and explicit fonts'` 성공.
+- main merge: 12:18:47 KST, `git merge --ff-only update/chrome-typography` 성공.
+- push: 12:18:47 KST 시작, `git push -u origin main` 성공 응답 후 12:19:02 KST까지 원격 SHA와 PUBLIC 상태 확인 완료.
+- `git diff --cached --check`, 두 테스트 스크립트 `node --check`, 로컬 Chrome 재검증 통과. 별도 필수 gate/hook은 없었으며 저장소 ruleset 목록은 비어 있었다.
+- GitHub Actions는 검증·병합 판정 기준으로 사용하지 않았다. 로컬 테스트와 독립 Codex Sol 재리뷰 결과를 사용했다.
+- 생성물은 Git에서 제외하고 `exports/chrome-typography-v2.0.1.zip`으로 보관했다. 기존 v2.0.0 ZIP도 로컬에 유지했다.
