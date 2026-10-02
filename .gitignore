@@ -1,0 +1,15 @@
+# Generated evidence, distribution archives and duplicate source backups.
+/test-results/
+/exports/
+/originals/
+/graphify-out/
+/.codebase-memory/
+.DS_Store
+*.log
+
+# Local credentials and environments.
+.env
+.env.*
+!.env.example
+node_modules/
+.venv/

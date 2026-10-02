@@ -1,0 +1,18 @@
+
+/* Claude.ai 한글 폰트 최적화 - 간단 버전 */
+[data-theme='claude'] * {
+	font-family:
+		'Pretendard GOV Variable',
+		'Pretendard Variable',
+		-apple-system,
+		BlinkMacSystemFont,
+		'Apple SD Gothic Neo',
+		sans-serif !important;
+}
+
+/* 코드 블록은 모노스페이스 유지 */
+[data-theme='claude'] code,
+[data-theme='claude'] pre {
+	font-family:
+		'SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', 'Consolas', monospace !important;
+}
